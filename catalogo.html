@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Space+Grotesk:wght@300..700&amp;family=Plus+Jakarta+Sans:ital,wght@00,200..800;1,200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-tertiary": "#313030",
+                        "primary-fixed": "#c3f400",
+                        "inverse-on-surface": "#2f3131",
+                        "surface-tint": "#abd600",
+                        "surface-container-highest": "#333535",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e2e2e2",
+                        "on-primary-fixed": "#161e00",
+                        "surface-dim": "#121414",
+                        "primary": "#ffffff",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1a1c1c",
+                        "on-secondary": "#3c2f00",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "secondary-container": "#af8d11",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "primary-fixed-dim": "#abd600",
+                        "tertiary-container": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface": "#121414",
+                        "primary-container": "#c3f400",
+                        "on-background": "#e2e2e2",
+                        "on-tertiary-container": "#656464",
+                        "surface-container-high": "#282a2b",
+                        "on-secondary-fixed-variant": "#574500",
+                        "tertiary": "#ffffff",
+                        "surface-container": "#1e2020",
+                        "secondary-fixed": "#ffe088",
+                        "background": "#121414",
+                        "secondary": "#e9c349",
+                        "on-secondary-fixed": "#241a00",
+                        "inverse-primary": "#506600",
+                        "outline-variant": "#444933",
+                        "surface-bright": "#38393a",
+                        "on-secondary-container": "#342800",
+                        "on-primary-container": "#556d00",
+                        "tertiary-fixed-dim": "#c9c6c5",
+                        "surface-variant": "#333535",
+                        "on-primary": "#283500",
+                        "outline": "#8e9379",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "tertiary-fixed": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "section-gap": "128px",
+                        "margin-desktop": "64px",
+                        "unit": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "technical-sm": ["Space Grotesk"],
+                        "display-xl": ["Lexend"],
+                        "headline-lg": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "technical-sm": ["12px", { "lineHeight": "140%", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-xl": ["84px", { "lineHeight": "90%", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+                        "headline-lg": ["48px", { "lineHeight": "100%", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "160%", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121414;
+            color: #e2e2e2;
+            overflow-x: hidden
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAQb7gaBKeQXxMNx9EcOFJX-8S0QIH-yRmPp2i0z2jaLv7hbb7uwiLuIKLbhXxWg5nfbp9O5zYCGTlw5HB2WjFnW8WbiUno_qTGzT1ltKIF10HPIQSpCza4Kdvlv3V3VMbtvGUBfoxsTBw2VqDTlXkWOHbyVJgeLhVlMJJN7Hj02wZAE10Ozoco2we8On0jelSJ0DZCzMDVkX2mSymcstR75VaX8C_QvoVb_NstmTTUTuomVPq9uJlZB1uYYqM4-L4mBuFW5EVxceAv);
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 9999
+        }
+
+        .frosted-obsidian {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(204, 255, 0, 0.1)
+        }
+
+        .neon-text-glow {
+            text-shadow: 0 0 15px rgba(204, 255, 0, 0.4)
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .clip-path-ripped {
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)
+        }
+        .filter-btn.active {
+            background: #c3f400;
+            color: black;
+            border-color: #c3f400;
+        }
+        .product-card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+        /* Cart Drawer */
+        #cart-drawer {
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #cart-drawer.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body
+    class="font-body-md text-on-surface bg-background selection:bg-primary-container selection:text-on-primary-container">
+    <div class="grain-overlay"></div>
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-6 py-4 bg-black/80 backdrop-blur-lg border-b border-[#CCFF00]/30 shadow-2xl shadow-[#CCFF00]/10">
+        <div
+            class="text-2xl font-black italic text-[#CCFF00] drop-shadow-[0_0_8px_rgba(204,255,0,0.5)] font-['Lexend'] uppercase tracking-tighter">
+            GORÓ DA MANSÃO
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-white/70 hover:text-[#CCFF00] hover:scale-105 transition-all duration-300 font-['Lexend'] font-black tracking-tighter uppercase"
+                href="index.html">O Clube</a>
+            <a class="text-[#CCFF00] border-b-2 border-[#CCFF00] pb-1 font-['Lexend'] font-black tracking-tighter uppercase"
+                href="catalogo.html">Coleções</a>
+            <a class="text-white/70 hover:text-[#CCFF00] hover:scale-105 transition-all duration-300 font-['Lexend'] font-black tracking-tighter uppercase"
+                href="eventos.html">Eventos</a>
+            <a class="text-white/70 hover:text-[#CCFF00] hover:scale-105 transition-all duration-300 font-['Lexend'] font-black tracking-tighter uppercase"
+                href="cadastro.html">Cadastro</a>
+        </nav>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4 text-[#CCFF00]">
+                <button class="material-symbols-outlined hover:scale-110 transition-transform"
+                    data-icon="search">search</button>
+                <div class="relative">
+                    <button onclick="toggleCart()" class="material-symbols-outlined hover:scale-110 transition-transform"
+                        data-icon="shopping_cart">shopping_cart</button>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-white text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center opacity-0 transition-opacity">0</span>
+                </div>
+            </div>
+            <button id="club-btn" onclick="handleClubAccess()"
+                class="hidden lg:block bg-primary-container text-on-primary-container px-6 py-2 font-['Lexend'] font-black uppercase tracking-tighter hover:bg-white hover:text-black transition-colors">
+                Acesse o Clube
+            </button>
+        </div>
+    </header>
+    <main class="pt-24 pb-32">
+        <!-- Hero Section / Title -->
+        <section class="px-margin-mobile md:px-margin-desktop py-12">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-8">
+                <div class="max-w-2xl">
+                    <span class="font-technical-sm text-technical-sm text-primary-fixed uppercase tracking-[0.3em] mb-4 block">Catálogo 2026</span>
+                    <h1 class="font-display-xl text-display-xl uppercase text-white mb-6">
+                        A ESCOLHA DO <span class="text-primary-fixed italic neon-text-glow">DEALER</span>
+                    </h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant border-l-2 border-primary-fixed pl-6">
+                        Tecnologia líquida para manter o shape e a vibe sem o crash do dia seguinte. Seleção exclusiva Mansão Maromba.
+                    </p>
+                </div>
+                <!-- Search & Filter Controls -->
+                <div class="w-full md:w-auto flex flex-col gap-4">
+                    <div class="relative group">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-primary-fixed transition-colors">search</span>
+                        <input id="product-search" type="text" placeholder="BUSCAR GORÓ..." class="bg-white/5 border border-white/10 pl-12 pr-6 py-4 text-xs font-technical-sm text-white uppercase tracking-widest focus:border-primary-fixed focus:ring-0 transition-all w-full md:w-80"/>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2 text-[10px] font-technical-sm border border-white/10 uppercase tracking-widest hover:border-primary-fixed transition-all">TODOS</button>
+                        <button onclick="filterProducts('Signature')" class="filter-btn px-4 py-2 text-[10px] font-technical-sm border border-white/10 uppercase tracking-widest hover:border-primary-fixed transition-all">SIGNATURE</button>
+                        <button onclick="filterProducts('Summer')" class="filter-btn px-4 py-2 text-[10px] font-technical-sm border border-white/10 uppercase tracking-widest hover:border-primary-fixed transition-all">SUMMER</button>
+                        <button onclick="filterProducts('Limited')" class="filter-btn px-4 py-2 text-[10px] font-technical-sm border border-white/10 uppercase tracking-widest hover:border-primary-fixed transition-all">LIMITED</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Product Grid -->
+        <section class="px-margin-mobile md:px-margin-desktop py-section-gap">
+            <div id="product-grid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                <!-- Fallback estático: Estes produtos aparecem imediatamente -->
+                <div class="group relative flex flex-col bg-surface-container-low p-8 border-l border-t border-white/5 hover:border-primary-fixed/30 transition-all duration-500">
+                    <div class="absolute -top-12 -right-4 w-48 h-72 z-10 group-hover:-translate-y-4 transition-transform duration-700 ease-out">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2eqL49IIzhGuJEgIHVqGbz8I8tslk4h9ai-BWsqc_dofC0cJUiuF7QFtpHCnim-yYj5h3VONJIl4OGLdD0QpGLqgrtv4EAycrPyXryscroNUHRPqK6vy8al7z3y2rkh4WK-MxQPdlN2-lsICdzPgbwYCiazbrujQvqbL8TmvWvd-4V2TapWAxoCQe2bjO2qfllNm5dNfO6vhIUjtSqptrGiLd2ZiFyfZb5VdANcLO5kdtYGO6UoFH0f9T476Jf01qfTNnhApH3nPR" alt="Vibe Pura" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(204,255,0,0.3)]">
+                    </div>
+                    <div class="mt-40">
+                        <span class="font-technical-sm text-technical-sm text-primary-fixed/60 uppercase">Signature Series</span>
+                        <h3 class="font-headline-lg text-headline-lg text-white uppercase mt-2">Vibe Pura</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-4 mb-8">Sabor da Festa + Redução de Danos. A fórmula original que definiu o padrão da mansão.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="font-display-xl text-4xl text-white">R$ 24,90</span>
+                            <button class="bg-primary-fixed text-black font-['Lexend'] font-bold px-6 py-4 uppercase tracking-tighter hover:bg-white transition-all transform active:scale-95">Garantir meu Shape</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative flex flex-col bg-surface-container-low p-8 border-l border-t border-white/5 hover:border-secondary/30 transition-all duration-500">
+                    <div class="absolute -top-12 -right-4 w-48 h-72 z-10 group-hover:-translate-y-4 transition-transform duration-700 ease-out">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFrkaYtU0dDXcnL6lviUs0Y8rMmnsKz8yS5pdoVzzcn9RUUYTp557HtrlkFKhJD1k4Nzb6uq4LUAZKotLevLeAzyCmtZEosiVNcn1sLZ1xkXyGd48vf6Fv7t3tWq6rAUAHFcxNiQND0Sv-aJkOGlt7R--IjZpWnSCFoxKXCSDcB-kc8ylfp9aWgMmif66FXdc_UY71SnVdez1jFQeMFup_sVM6utXAiYFury7GaiBBSfspjm7cW8JuHIHe0YvZ4jcQ0YP_M9IwgfFL" alt="Energia Tropical" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(233,195,73,0.3)]">
+                    </div>
+                    <div class="mt-40">
+                        <span class="font-technical-sm text-technical-sm text-secondary/60 uppercase">Summer Series</span>
+                        <h3 class="font-headline-lg text-headline-lg text-white uppercase mt-2">Energia Tropical</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-4 mb-8">Melancia glacial com toque de eletrólitos. O refresh necessário para o after infinito.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="font-display-xl text-4xl text-white">R$ 26,90</span>
+                            <button class="bg-secondary text-black font-['Lexend'] font-bold px-6 py-4 uppercase tracking-tighter hover:bg-white transition-all transform active:scale-95">Garantir meu Shape</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative flex flex-col bg-surface-container-low p-8 border-l border-t border-white/5 hover:border-primary-fixed/30 transition-all duration-500">
+                    <div class="absolute -top-12 -right-4 w-48 h-72 z-10 group-hover:-translate-y-4 transition-transform duration-700 ease-out">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi1tBQDA7EGLiclXw5bjc-wkVJJZdwGkeMlAVmejK-mzwQvTn7Xho_fz3-PeoflUOmnrrvAUw5GelcvTHv3axSj-osh3eT0JcqN5TrYWxEIKYIqXMj5wSTGVH0g0fFsjMDU6ABS7bYrGsjYa-wA-kWljWcQfpAtoB2qtbfX-mOxCO2CBr-bPXYyjtDcRXmqEsz9ck-JkakGW-6QqsfJNRB8LMlRQcNEDH8wLabJO0oOCzjqSScSqa2UESza1fOKkT61_SSB3zeFaPs" alt="Shock Cítrico" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(204,255,0,0.3)]">
+                    </div>
+                    <div class="mt-40">
+                        <span class="font-technical-sm text-technical-sm text-primary-fixed/60 uppercase">High Voltage Series</span>
+                        <h3 class="font-headline-lg text-headline-lg text-white uppercase mt-2">Shock Cítrico</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-4 mb-8">Explosão de limão tahiti e yuzu. Redução de danos com foco total na pista.</p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="font-display-xl text-4xl text-white">R$ 24,90</span>
+                            <button class="bg-primary-fixed text-black font-['Lexend'] font-bold px-6 py-4 uppercase tracking-tighter hover:bg-white transition-all transform active:scale-95">Garantir meu Shape</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Marquee Section -->
+        <div class="w-full py-12 border-y border-white/5 overflow-hidden">
+            <div class="marquee-container">
+                <div class="marquee-content flex gap-8">
+                    <span class="font-display-xl text-7xl text-transparent border-text stroke-white/20 uppercase"
+                        style="-webkit-text-stroke: 1px rgba(255,255,255,0.2);">Em pleno 2026</span>
+                    <span class="font-display-xl text-7xl text-primary-fixed uppercase italic">MARCHA NO
+                        PROGRESSO</span>
+                    <span class="font-display-xl text-7xl text-transparent border-text stroke-white/20 uppercase"
+                        style="-webkit-text-stroke: 1px rgba(255,255,255,0.2);">Em pleno 2026</span>
+                    <span class="font-display-xl text-7xl text-primary-fixed uppercase italic">MARCHA NO
+                        PROGRESSO</span>
+                </div>
+            </div>
+        </div>
+        <!-- Why Goró? Infographic Section -->
+        <section class="px-margin-mobile md:px-margin-desktop py-section-gap bg-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-24">
+                    <h2 class="font-display-xl text-display-xl text-white uppercase mb-4">POR QUE O <span
+                            class="text-primary-fixed neon-text-glow">GORÓ</span>?</h2>
+                    <p class="font-technical-sm text-technical-sm text-on-surface-variant">ANÁLISE COMPARATIVA DE
+                        PERFORMANCE E SEGURANÇA</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Danger Side -->
+                    <div class="frosted-obsidian p-10 border-error/20 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4 font-technical-sm text-error bg-error/10">DANGER ZONE
+                        </div>
+                        <h4 class="font-headline-lg text-3xl text-error uppercase mb-8">Mistura Comum</h4>
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-6">
+                                <div
+                                    class="w-16 h-16 rounded-full border border-error/50 flex items-center justify-center text-error">
+                                    <span class="material-symbols-outlined"
+                                        style="font-variation-settings: 'FILL' 0;">bolt</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="h-2 w-full bg-surface-container-highest">
+                                        <div class="h-full bg-error w-full animate-pulse"></div>
+                                    </div>
+                                    <p class="font-technical-sm text-xs mt-2 text-error">CRASH CARDÍACO &amp;
+                                        DESIDRATAÇÃO</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <div
+                                    class="w-16 h-16 rounded-full border border-error/50 flex items-center justify-center text-error">
+                                    <span class="material-symbols-outlined"
+                                        style="font-variation-settings: 'FILL' 0;">warning</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="h-2 w-full bg-surface-container-highest">
+                                        <div class="h-full bg-error w-3/4 opacity-50"></div>
+                                    </div>
+                                    <p class="font-technical-sm text-xs mt-2 text-error">RESSACA DESTRUÍDA (DIA
+                                        SEGUINTE)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Technical Diagram placeholder -->
+                        <div class="mt-12 opacity-30 group-hover:opacity-60 transition-opacity">
+                            <div class="h-40 w-full border-t border-l border-error/30 flex items-end">
+                                <div class="w-full h-24 bg-gradient-to-t from-error/20 to-transparent"
+                                    style="clip-path: polygon(0 80%, 20% 0, 40% 90%, 60% 10%, 80% 100%, 100% 0);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Vibe Side -->
+                    <div class="frosted-obsidian p-10 border-primary-fixed/20 relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 p-4 font-technical-sm text-primary-fixed bg-primary-fixed/10">
+                            MARCHA LEVEL</div>
+                        <h4 class="font-headline-lg text-3xl text-primary-fixed uppercase mb-8">Goró Formula</h4>
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-6">
+                                <div
+                                    class="w-16 h-16 rounded-full border border-primary-fixed/50 flex items-center justify-center text-primary-fixed">
+                                    <span class="material-symbols-outlined"
+                                        style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="h-2 w-full bg-surface-container-highest">
+                                        <div
+                                            class="h-full bg-primary-fixed w-full shadow-[0_0_10px_rgba(204,255,0,0.5)]">
+                                        </div>
+                                    </div>
+                                    <p class="font-technical-sm text-xs mt-2 text-primary-fixed">PROTEÇÃO HEPÁTICA &amp;
+                                        HIDRATAÇÃO</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <div
+                                    class="w-16 h-16 rounded-full border border-primary-fixed/50 flex items-center justify-center text-primary-fixed">
+                                    <span class="material-symbols-outlined"
+                                        style="font-variation-settings: 'FILL' 1;">celebration</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="h-2 w-full bg-surface-container-highest">
+                                        <div
+                                            class="h-full bg-primary-fixed w-full shadow-[0_0_10px_rgba(204,255,0,0.5)]">
+                                        </div>
+                                    </div>
+                                    <p class="font-technical-sm text-xs mt-2 text-primary-fixed">VIBE CONSTANTE (0%
+                                        CRASH)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Technical Diagram placeholder -->
+                        <div class="mt-12 group-hover:scale-105 transition-transform">
+                            <div class="h-40 w-full border-t border-l border-primary-fixed/30 flex items-end">
+                                <div class="w-full h-full bg-gradient-to-t from-primary-fixed/20 to-transparent"
+                                    style="clip-path: polygon(0 100%, 100% 100%, 100% 20%, 0 20%);">
+                                    <div class="w-full h-full border-t-2 border-primary-fixed neon-text-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- BottomNavBar (Mobile only) -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#1A1A1A]/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.8)]">
+        <div class="flex flex-col items-center justify-center text-white/40">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-['Lexend'] font-bold text-[10px] uppercase tracking-widest mt-1">Início</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center text-[#CCFF00] bg-[#CCFF00]/10 rounded-full px-4 py-2 shadow-[0_0_15px_rgba(204,255,0,0.2)] scale-110">
+            <span class="material-symbols-outlined" data-icon="liquor">liquor</span>
+            <span class="font-['Lexend'] font-bold text-[10px] uppercase tracking-widest mt-1">Loja</span>
+        </div>
+        <div class="flex flex-col items-center justify-center text-white/40">
+            <span class="material-symbols-outlined" data-icon="stars">stars</span>
+            <span class="font-['Lexend'] font-bold text-[10px] uppercase tracking-widest mt-1">Clube</span>
+        </div>
+        <div class="flex flex-col items-center justify-center text-white/40">
+            <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+            <span class="font-['Lexend'] font-bold text-[10px] uppercase tracking-widest mt-1">Carrinho</span>
+        </div>
+    </nav>
+    <!-- Footer -->
+    <footer
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end w-full bg-black py-12 px-8 border-t border-[#CCFF00]/10">
+        <div class="relative">
+            <div class="text-4xl font-black text-white/5 absolute opacity-10 font-['Lexend']">GORÓ DA MANSÃO</div>
+            <p class="font-['Space_Grotesk'] text-xs font-light tracking-widest uppercase text-white/30">
+                © 2026 GORÓ DA MANSÃO - EM PLENO 2026.
+            </p>
+        </div>
+        <div class="flex flex-wrap gap-6 md:justify-end">
+            <a class="font-['Space_Grotesk'] text-xs font-light tracking-widest uppercase text-white/30 hover:text-[#CCFF00] underline decoration-[#CCFF00] decoration-2 underline-offset-4 transition-all"
+                href="#">Termos de Uso</a>
+            <a class="font-['Space_Grotesk'] text-xs font-light tracking-widest uppercase text-white/30 hover:text-[#CCFF00] underline decoration-[#CCFF00] decoration-2 underline-offset-4 transition-all"
+                href="#">Privacidade</a>
+            <a class="font-['Space_Grotesk'] text-xs font-light tracking-widest uppercase text-white/30 hover:text-[#CCFF00] underline decoration-[#CCFF00] decoration-2 underline-offset-4 transition-all"
+                href="#">Seja um Dealer</a>
+            <a class="font-['Space_Grotesk'] text-xs font-light tracking-widest uppercase text-[#CCFF00] transition-all"
+                href="#">Suporte</a>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[150] opacity-0 pointer-events-none transition-opacity duration-500"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-surface-container-lowest border-l border-white/10 z-[200] flex flex-col shadow-2xl">
+        <div class="p-8 border-b border-white/5 flex justify-between items-center">
+            <h2 class="font-display-xl text-2xl text-white uppercase tracking-tighter">Seu Carrinho</h2>
+            <button onclick="toggleCart()" class="material-symbols-outlined text-white/50 hover:text-white transition-colors">close</button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-8 space-y-6">
+            <!-- Items added dynamically -->
+            <p class="text-white/30 text-center font-technical-sm uppercase tracking-widest mt-20">Carrinho Vazio</p>
+        </div>
+        <div class="p-8 bg-black/40 border-t border-white/5 space-y-6">
+            <div class="flex justify-between items-end">
+                <span class="font-technical-sm text-xs text-white/40 uppercase">Total Estimado</span>
+                <span id="cart-total" class="font-display-xl text-3xl text-primary-fixed">R$ 0,00</span>
+            </div>
+            <button onclick="proceedToCheckout()" class="w-full bg-primary-fixed text-black font-['Lexend'] font-black py-6 uppercase tracking-tighter hover:bg-white transition-all transform active:scale-95 flex items-center justify-center gap-4">
+                Finalizar Compra
+                <span class="material-symbols-outlined">payments</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        let allProducts = [];
+        let currentFilter = 'all';
+
+        async function loadProducts() {
+            const grid = document.getElementById('product-grid');
+            try {
+                // Tenta carregar do servidor
+                const response = await fetch('/api/products');
+                if (response.ok) {
+                    allProducts = await response.json();
+                } else {
+                    throw new Error('Fallback para estático');
+                }
+            } catch (err) {
+                console.warn('Usando dados estáticos de fallback');
+                allProducts = [
+                    { id: 1, name: 'Vibe Pura', category: 'Signature', price: 24.90, description: 'Sabor da Festa + Redução de Danos. A fórmula original que definiu o padrão da mansão.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2eqL49IIzhGuJEgIHVqGbz8I8tslk4h9ai-BWsqc_dofC0cJUiuF7QFtpHCnim-yYj5h3VONJIl4OGLdD0QpGLqgrtv4EAycrPyXryscroNUHRPqK6vy8al7z3y2rkh4WK-MxQPdlN2-lsICdzPgbwYCiazbrujQvqbL8TmvWvd-4V2TapWAxoCQe2bjO2qfllNm5dNfO6vhIUjtSqptrGiLd2ZiFyfZb5VdANcLO5kdtYGO6UoFH0f9T476Jf01qfTNnhApH3nPR' },
+                    { id: 2, name: 'Energia Tropical', category: 'Summer', price: 26.90, description: 'Melancia glacial com toque de eletrólitos. O refresh necessário para o after infinito.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFrkaYtU0dDXcnL6lviUs0Y8rMmnsKz8yS5pdoVzzcn9RUUYTp557HtrlkFKhJD1k4Nzb6uq4LUAZKotLevLeAzyCmtZEosiVNcn1sLZ1xkXyGd48vf6Fv7t3tWq6rAUAHFcxNiQND0Sv-aJkOGlt7R--IjZpWnSCFoxKXCSDcB-kc8ylfp9aWgMmif66FXdc_UY71SnVdez1jFQeMFup_sVM6utXAiYFury7GaiBBSfspjm7cW8JuHIHe0YvZ4jcQ0YP_M9IwgfFL' },
+                    { id: 3, name: 'Shock Cítrico', category: 'High Voltage', price: 24.90, description: 'Explosão de limão tahiti e yuzu. Redução de danos com foco total na pista.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCi1tBQDA7EGLiclXw5bjc-wkVJJZdwGkeMlAVmejK-mzwQvTn7Xho_fz3-PeoflUOmnrrvAUw5GelcvTHv3axSj-osh3eT0JcqN5TrYWxEIKYIqXMj5wSTGVH0g0fFsjMDU6ABS7bYrGsjYa-wA-kWljWcQfpAtoB2qtbfX-mOxCO2CBr-bPXYyjtDcRXmqEsz9ck-JkakGW-6QqsfJNRB8LMlRQcNEDH8wLabJO0oOCzjqSScSqa2UESza1fOKkT61_SSB3zeFaPs' },
+                    { id: 4, name: 'Monster Grape', category: 'Signature', price: 25.90, description: 'Uva intensa com carga extra de taurina. O combustível pesado para quem não para.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2eqL49IIzhGuJEgIHVqGbz8I8tslk4h9ai-BWsqc_dofC0cJUiuF7QFtpHCnim-yYj5h3VONJIl4OGLdD0QpGLqgrtv4EAycrPyXryscroNUHRPqK6vy8al7z3y2rkh4WK-MxQPdlN2-lsICdzPgbwYCiazbrujQvqbL8TmvWvd-4V2TapWAxoCQe2bjO2qfllNm5dNfO6vhIUjtSqptrGiLd2ZiFyfZb5VdANcLO5kdtYGO6UoFH0f9T476Jf01qfTNnhApH3nPR' },
+                    { id: 5, name: 'Ice Mint Blast', category: 'Summer', price: 27.90, description: 'Menta polar ultra-refrescante. Congela a sede e renova as energias na hora.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFrkaYtU0dDXcnL6lviUs0Y8rMmnsKz8yS5pdoVzzcn9RUUYTp557HtrlkFKhJD1k4Nzb6uq4LUAZKotLevLeAzyCmtZEosiVNcn1sLZ1xkXyGd48vf6Fv7t3tWq6rAUAHFcxNiQND0Sv-aJkOGlt7R--IjZpWnSCFoxKXCSDcB-kc8ylfp9aWgMmif66FXdc_UY71SnVdez1jFQeMFup_sVM6utXAiYFury7GaiBBSfspjm7cW8JuHIHe0YvZ4jcQ0YP_M9IwgfFL' },
+                    { id: 6, name: 'Night Crawler', category: 'Limited', price: 29.90, description: 'Blend noturno com foco em relaxamento pós-treino e recuperação rápida.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCi1tBQDA7EGLiclXw5bjc-wkVJJZdwGkeMlAVmejK-mzwQvTn7Xho_fz3-PeoflUOmnrrvAUw5GelcvTHv3axSj-osh3eT0JcqN5TrYWxEIKYIqXMj5wSTGVH0g0fFsjMDU6ABS7bYrGsjYa-wA-kWljWcQfpAtoB2qtbfX-mOxCO2CBr-bPXYyjtDcRXmqEsz9ck-JkakGW-6QqsfJNRB8LMlRQcNEDH8wLabJO0oOCzjqSScSqa2UESza1fOKkT61_SSB3zeFaPs' },
+                    { id: 7, name: 'Nitro Punch', category: 'High Voltage', price: 28.90, description: 'Carga máxima de beta-alanina e cafeína. O soco de energia que a sua rotina precisa.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2eqL49IIzhGuJEgIHVqGbz8I8tslk4h9ai-BWsqc_dofC0cJUiuF7QFtpHCnim-yYj5h3VONJIl4OGLdD0QpGLqgrtv4EAycrPyXryscroNUHRPqK6vy8al7z3y2rkh4WK-MxQPdlN2-lsICdzPgbwYCiazbrujQvqbL8TmvWvd-4V2TapWAxoCQe2bjO2qfllNm5dNfO6vhIUjtSqptrGiLd2ZiFyfZb5VdANcLO5kdtYGO6UoFH0f9T476Jf01qfTNnhApH3nPR' },
+                    { id: 8, name: 'Coco Loco', category: 'Summer', price: 25.90, description: 'Água de coco premium com minerais marinhos. Hidratação nível Mansão.', image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFrkaYtU0dDXcnL6lviUs0Y8rMmnsKz8yS5pdoVzzcn9RUUYTp557HtrlkFKhJD1k4Nzb6uq4LUAZKotLevLeAzyCmtZEosiVNcn1sLZ1xkXyGd48vf6Fv7t3tWq6rAUAHFcxNiQND0Sv-aJkOGlt7R--IjZpWnSCFoxKXCSDcB-kc8ylfp9aWgMmif66FXdc_UY71SnVdez1jFQeMFup_sVM6utXAiYFury7GaiBBSfspjm7cW8JuHIHe0YvZ4jcQ0YP_M9IwgfFL' }
+                ];
+            }
+            renderProducts(allProducts);
+        }
+
+        function renderProducts(products) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = products.map(product => `
+                <div class="product-card group relative flex flex-col bg-surface-container-low p-8 border border-white/5 hover:border-primary-fixed/30 transition-all">
+                    <div class="absolute top-4 left-4 z-20">
+                        <span class="bg-primary-fixed text-black text-[9px] font-black px-2 py-1 uppercase tracking-tighter shadow-lg">${product.category}</span>
+                    </div>
+                    <div class="absolute -top-12 -right-4 w-48 h-72 z-10 group-hover:-translate-y-4 transition-transform duration-700 ease-out">
+                        <img src="${product.image_url}" alt="${product.name}" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(204,255,0,0.3)]">
+                    </div>
+                    <div class="mt-40 relative z-10">
+                        <span class="font-technical-sm text-technical-sm text-primary-fixed/40 uppercase tracking-[0.2em] mb-1 block">${product.category} EDITION</span>
+                        <h3 class="font-headline-lg text-2xl text-white uppercase mb-4">${product.name}</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant mb-8 line-clamp-2">
+                            ${product.description}
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-6">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-white/30 uppercase font-technical-sm">PREÇO_UNIT</span>
+                                <span class="font-display-xl text-3xl text-white">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="addToCart(${product.id})" class="bg-primary-fixed hover:bg-white text-black p-4 transition-all group/btn shadow-[0_0_15px_rgba(195,244,0,0.2)]">
+                                <span class="material-symbols-outlined translate-y-0.5 group-hover/btn:scale-110 transition-transform">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProducts(category) {
+            currentFilter = category;
+            
+            // UI Update
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('onclick').includes(category));
+            });
+
+            const filtered = category === 'all' 
+                ? allProducts 
+                : allProducts.filter(p => p.category === category);
+            
+            renderProducts(filtered);
+        }
+
+        document.getElementById('product-search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = allProducts.filter(p => 
+                (p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term)) &&
+                (currentFilter === 'all' || p.category === currentFilter)
+            );
+            renderProducts(filtered);
+        });
+
+        // Cart Logic
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(productId) {
+            const product = allProducts.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            saveCart();
+            updateCartUI();
+            toggleCart(true); // Abre o carrinho ao adicionar
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            updateCartUI();
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+            const countBadge = document.getElementById('cart-count');
+            countBadge.innerText = count;
+            countBadge.style.opacity = count > 0 ? '1' : '0';
+
+            const itemsContainer = document.getElementById('cart-items');
+            const totalDisplay = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p class="text-white/30 text-center font-technical-sm uppercase tracking-widest mt-20">Carrinho Vazio</p>';
+                totalDisplay.innerText = 'R$ 0,00';
+                return;
+            }
+
+            let total = 0;
+            itemsContainer.innerHTML = cart.map(item => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="flex gap-4 bg-white/5 p-4 items-center group">
+                        <img src="${item.image_url}" class="w-16 h-16 object-contain">
+                        <div class="flex-1">
+                            <h4 class="text-white text-sm font-bold uppercase">${item.name}</h4>
+                            <p class="text-xs text-white/40">${item.quantity}x R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="material-symbols-outlined text-white/20 hover:text-error transition-colors">delete</button>
+                    </div>
+                `;
+            }).join('');
+
+            totalDisplay.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function toggleCart(forceOpen = null) {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            const isOpen = forceOpen !== null ? !forceOpen : drawer.classList.contains('open');
+
+            if (!isOpen) {
+                drawer.classList.add('open');
+                overlay.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                drawer.classList.remove('open');
+                overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            
+            const isRegistered = localStorage.getItem('isRegistered');
+            
+            if (isRegistered) {
+                window.location.href = 'pagamento.html';
+            } else {
+                alert('FAÇA SEU CADASTRO PARA FINALIZAR A COMPRA NA MANSÃO!');
+                window.location.href = 'cadastro.html';
+            }
+        }
+
+        // Listener para sincronizar entre abas
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'cart') {
+                cart = JSON.parse(e.newValue || '[]');
+                updateCartUI();
+            }
+        });
+
+        // Club Access Logic
+        function handleClubAccess() {
+            const isRegistered = localStorage.getItem('isRegistered');
+            if (isRegistered) {
+                window.location.href = 'clube.html';
+            } else {
+                window.location.href = 'cadastro.html';
+            }
+        }
+
+        function updateClubButton() {
+            const isRegistered = localStorage.getItem('isRegistered');
+            const clubBtn = document.getElementById('club-btn');
+            if (isRegistered && clubBtn) {
+                clubBtn.innerText = 'ÁREA VIP';
+                clubBtn.classList.remove('bg-primary-container');
+                clubBtn.classList.add('bg-white');
+            }
+        }
+
+        // Inicializa UI
+        updateCartUI();
+        updateClubButton();
+        loadProducts();
+    </script>
+</body>
+
+</html>

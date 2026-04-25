@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CLUBE DA MANSÃO - ÁREA VIP</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Space+Grotesk:wght@300..700&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c3f400",
+                        "background": "#0c0f0f",
+                        "surface": "#121414"
+                    },
+                    "fontFamily": {
+                        "display": ["Lexend"],
+                        "technical": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.05;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAZf7DlgjTL7G5_F14VS0V7UIe8esRMQ_2gjILA8EuIRY7R5QHfjL4z01B1HRaaFwpmPhdLfW0Hcwpjwe2-8B6pIvIzNall8a6P4tl4ysGmNxRW1OZMZ_9EicDNSwGIchlCilR6FO5g5ZNAyUktoyoxfRZ6R3BlwBBroYzKvEvXaxgZirz3LV8wCSQZRX-MP1tM4cfkrgrCOVqKILB2P_hMJcC8XEjMfE9XRBcUP46a1cwzCL4XHB29yn6mcjejYhYGt4L--CcQJ0bY);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(195,244,0,0) 0%, rgba(195,244,0,0.1) 50%, rgba(195,244,0,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-white font-['Plus_Jakarta_Sans'] overflow-x-hidden">
+    <div class="grain-overlay"></div>
+
+    <!-- Header Simples -->
+    <header class="p-6 border-b border-white/5 flex justify-between items-center bg-black/50 backdrop-blur-md sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span class="font-display font-black uppercase text-xs">Voltar</span>
+        </a>
+        <div class="text-xl font-display font-black text-primary-fixed italic uppercase tracking-tighter">CLUBE DA MANSÃO</div>
+        <button onclick="logout()" class="text-xs font-technical uppercase text-white/30 hover:text-red-500 transition-colors">Sair</button>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6 md:p-12 space-y-12">
+        <!-- Perfil do Membro -->
+        <div class="relative p-8 md:p-12 border border-white/10 bg-surface overflow-hidden group">
+            <div class="absolute top-0 right-0 p-6 font-technical text-[10px] text-primary-fixed opacity-50 tracking-widest">ELITE_MEMBER_v26</div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                <div class="w-32 h-32 rounded-full border-4 border-primary-fixed p-1 bg-black overflow-hidden relative group">
+                    <img id="user-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGcr9J4Tsk_6zyQSFn413tBCNN3WeA4ycuIPQrNxrjMtH7m3v18Pgw80L0R8jk_Qq1Vu_LwB-PVJG-2zW6Pl42XYw1W7CGXN-Ou5L5D2MTPVw7Y5MiDPWoDuVzS2M3urA8ivUWFuccfhIE4gr2b7dkX53fG5Nkvg9MeN9AruOjkcf4dac8hoG8N693UES6lK5HuUpSgLBQkbPCUq-eHIvIt8X91gkuRJsvMQpIPAXKXyl2yiPuMeY0hahM7SC9-2-LXGtUTej1yP8o" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-primary-fixed/20 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="text-center md:text-left flex-1">
+                    <h1 id="user-name" class="font-display text-4xl md:text-6xl font-black uppercase tracking-tighter mb-2">MAROMBA_USER</h1>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <span class="bg-primary-fixed text-black font-technical font-bold px-3 py-1 text-[10px] uppercase">Status: ELITE</span>
+                        <span class="border border-white/20 text-white/50 font-technical px-3 py-1 text-[10px] uppercase">Desde: 2026</span>
+                    </div>
+                </div>
+                <div class="flex gap-12 text-center border-t md:border-t-0 md:border-l border-white/10 pt-8 md:pt-0 md:pl-12 w-full md:w-auto">
+                    <div>
+                        <p class="font-technical text-[10px] text-white/30 uppercase mb-1">Mansão Points</p>
+                        <p class="font-display text-4xl font-black text-primary-fixed">1.250</p>
+                    </div>
+                    <div>
+                        <p class="font-technical text-[10px] text-white/30 uppercase mb-1">Conquistas</p>
+                        <p class="font-display text-4xl font-black">08</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Benefícios -->
+            <div class="lg:col-span-2 space-y-8">
+                <h2 class="font-display text-2xl font-black uppercase italic border-l-4 border-primary-fixed pl-4">Benefícios Ativos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-6 bg-white/5 border border-white/5 hover:border-primary-fixed/30 transition-colors group">
+                        <span class="material-symbols-outlined text-primary-fixed mb-4">local_shipping</span>
+                        <h4 class="font-display font-bold uppercase text-sm mb-2">Frete Express Grátis</h4>
+                        <p class="text-xs text-white/40">Entrega priorizada em até 24h para toda a rede Mansão.</p>
+                    </div>
+                    <div class="p-6 bg-white/5 border border-white/5 hover:border-primary-fixed/30 transition-colors">
+                        <span class="material-symbols-outlined text-primary-fixed mb-4">confirmation_number</span>
+                        <h4 class="font-display font-bold uppercase text-sm mb-2">Prioridade VIP</h4>
+                        <p class="text-xs text-white/40">Sua solicitação de eventos vai direto para o topo da lista.</p>
+                    </div>
+                    <div class="p-6 bg-white/5 border border-white/5 hover:border-primary-fixed/30 transition-colors">
+                        <span class="material-symbols-outlined text-primary-fixed mb-4">percent</span>
+                        <h4 class="font-display font-bold uppercase text-sm mb-2">Desconto Fixo 15%</h4>
+                        <p class="text-xs text-white/40">Aplicado automaticamente em todas as coleções do catálogo.</p>
+                    </div>
+                    <div class="p-6 bg-white/5 border border-white/5 hover:border-primary-fixed/30 transition-colors">
+                        <span class="material-symbols-outlined text-primary-fixed mb-4">lock_open</span>
+                        <h4 class="font-display font-bold uppercase text-sm mb-2">Acesso Antecipado</h4>
+                        <p class="text-xs text-white/40">Drops exclusivos liberados 48h antes do público geral.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Últimos Pedidos -->
+            <div class="space-y-8">
+                <h2 class="font-display text-2xl font-black uppercase italic border-l-4 border-primary-fixed pl-4">Pedidos</h2>
+                <div class="space-y-4">
+                    <div class="p-4 border border-white/5 bg-white/2 flex items-center justify-between">
+                        <div>
+                            <p class="font-technical text-[10px] text-white/30 uppercase">#8291 - 12/04/26</p>
+                            <p class="text-sm font-bold">2x Monster Grape</p>
+                        </div>
+                        <span class="text-[10px] bg-green-500/20 text-green-500 px-2 py-0.5 rounded">Entregue</span>
+                    </div>
+                    <div class="p-4 border border-white/5 bg-white/2 flex items-center justify-between">
+                        <div>
+                            <p class="font-technical text-[10px] text-white/30 uppercase">#7104 - 05/04/26</p>
+                            <p class="text-sm font-bold">1x Shock Cítrico</p>
+                        </div>
+                        <span class="text-[10px] bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded">Em trânsito</span>
+                    </div>
+                    <button class="w-full py-4 border border-white/10 text-[10px] font-technical uppercase tracking-widest text-white/30 hover:text-white hover:border-white transition-all">Ver Histórico Completo</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="p-12 bg-primary-fixed text-black text-center space-y-6">
+            <h2 class="font-display text-4xl font-black uppercase italic leading-none">PRONTO PARA A <br/>PRÓXIMA MARCHA?</h2>
+            <p class="font-technical font-bold uppercase tracking-widest text-xs">Vá para o catálogo e use seu desconto de elite.</p>
+            <a href="catalogo.html" class="inline-block bg-black text-white px-12 py-5 font-display font-black uppercase hover:scale-105 transition-transform">IR PARA COLEÇÕES</a>
+        </div>
+    </main>
+
+    <script>
+        // Check if registered
+        const isRegistered = localStorage.getItem('isRegistered');
+        const userName = localStorage.getItem('userName') || 'MEMBRO VIP';
+
+        if (!isRegistered) {
+            window.location.href = 'cadastro.html';
+        }
+
+        document.getElementById('user-name').innerText = userName.toUpperCase();
+
+        function logout() {
+            localStorage.removeItem('isRegistered');
+            localStorage.removeItem('userName');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

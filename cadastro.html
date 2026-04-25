@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CADASTRO - GORÓ DA MANSÃO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Space+Grotesk:wght@300..700&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ffffff",
+                        "primary-container": "#c3f400",
+                        "background": "#121414",
+                        "surface": "#121414",
+                        "on-surface": "#e2e2e2",
+                        "on-surface-variant": "#c4c9ac"
+                    },
+                    "fontFamily": {
+                        "display": ["Lexend"],
+                        "technical": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAZf7DlgjTL7G5_F14VS0V7UIe8esRMQ_2gjILA8EuIRY7R5QHfjL4z01B1HRaaFwpmPhdLfW0Hcwpjwe2-8B6pIvIzNall8a6P4tl4ysGmNxRW1OZMZ_9EicDNSwGIchlCilR6FO5g5ZNAyUktoyoxfRZ6R3BlwBBroYzKvEvXaxgZirz3LV8wCSQZRX-MP1tM4cfkrgrCOVqKILB2P_hMJcC8XEjMfE9XRBcUP46a1cwzCL4XHB29yn6mcjejYhYGt4L--CcQJ0bY);
+        }
+
+        .frosted-obsidian {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(195, 244, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-black overflow-x-hidden">
+    <div class="grain-overlay"></div>
+
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-6 py-4 bg-black/80 backdrop-blur-lg border-b border-[#CCFF00]/30 shadow-2xl shadow-[#CCFF00]/10">
+        <div
+            class="text-2xl font-display font-black italic text-[#CCFF00] drop-shadow-[0_0_8px_rgba(204,255,0,0.5)] uppercase tracking-tighter">
+            GORÓ DA MANSÃO
+        </div>
+        <nav class="hidden md:flex gap-8 items-center">
+            <a class="font-display font-black tracking-tighter uppercase text-white/70 hover:text-[#CCFF00] transition-all"
+                href="index.html">O Clube</a>
+            <a class="font-display font-black tracking-tighter uppercase text-white/70 hover:text-[#CCFF00] transition-all"
+                href="catalogo.html">Coleções</a>
+            <a class="font-display font-black tracking-tighter uppercase text-white/70 hover:text-[#CCFF00] transition-all"
+                href="eventos.html">Eventos</a>
+            <a class="font-display font-black tracking-tighter uppercase text-[#CCFF00] border-b-2 border-[#CCFF00] pb-1"
+                href="cadastro.html">Cadastro</a>
+        </nav>
+        <button
+            class="bg-[#CCFF00] text-black font-display font-black px-6 py-2 text-xs uppercase hover:scale-105 transition-transform active:scale-95">Acesse
+            o Clube</button>
+    </header>
+
+    <main class="min-h-screen flex items-center justify-center pt-32 pb-20 px-6">
+        <div class="w-full max-w-md frosted-obsidian p-10 relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 p-4 font-technical text-[10px] text-primary-container opacity-50 tracking-widest">
+                REGISTRATION_01</div>
+
+            <div class="mb-10">
+                <h1 class="font-display text-4xl font-black uppercase leading-none mb-4">FAÇA PARTE DA <br /><span
+                        class="text-primary-container">ELITE</span></h1>
+                <p class="font-body text-on-surface-variant text-sm">Crie sua conta para acessar coleções exclusivas e
+                    eventos da Mansão Maromba.</p>
+            </div>
+
+            <form id="cadastro-form" class="space-y-6">
+                <div class="space-y-2">
+                    <label class="font-technical text-primary-container uppercase text-[10px] tracking-widest">NOME
+                        COMPLETO</label>
+                    <input id="name" type="text" required
+                        class="w-full bg-white/5 border border-white/10 p-4 text-white font-body focus:border-primary-container focus:ring-0 transition-colors"
+                        placeholder="COMO DEVEMOS TE CHAMAR?" />
+                </div>
+
+                <div class="space-y-2">
+                    <label
+                        class="font-technical text-primary-container uppercase text-[10px] tracking-widest">EMAIL_ADDRESS</label>
+                    <input id="email" type="email" required
+                        class="w-full bg-white/5 border border-white/10 p-4 text-white font-body focus:border-primary-container focus:ring-0 transition-colors"
+                        placeholder="SEU@EMAIL.COM" />
+                </div>
+
+                <div class="space-y-2">
+                    <label
+                        class="font-technical text-primary-container uppercase text-[10px] tracking-widest">PASSWORD_SECURITY</label>
+                    <input id="password" type="password" required
+                        class="w-full bg-white/5 border border-white/10 p-4 text-white font-body focus:border-primary-container focus:ring-0 transition-colors"
+                        placeholder="NO MÍNIMO 8 CARACTERES" />
+                </div>
+
+                <div class="space-y-2">
+                    <label
+                        class="font-technical text-primary-container uppercase text-[10px] tracking-widest">PHONE_IDENTIFIER
+                        (OPCIONAL)</label>
+                    <input id="phone" type="tel"
+                        class="w-full bg-white/5 border border-white/10 p-4 text-white font-body focus:border-primary-container focus:ring-0 transition-colors"
+                        placeholder="+55 (00) 00000-0000" />
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-primary-container text-black font-display font-black py-5 uppercase text-lg hover:bg-white hover:shadow-[0_0_30px_rgba(195,244,0,0.4)] transition-all active:scale-95">
+                    CRIAR MINHA CONTA
+                </button>
+            </form>
+
+            <p class="mt-8 text-center text-xs font-body text-on-surface-variant">
+                Já tem uma conta? <a href="#" class="text-primary-container hover:underline">Faça login</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="w-full py-8 text-center border-t border-white/5 opacity-30">
+        <p class="font-technical text-[10px] tracking-widest uppercase">© 2026 GORÓ DA MANSÃO - EM PLENO 2026.</p>
+    </footer>
+
+    <script>
+        // Verificação imediata: se já estiver cadastrado, manda para o Clube
+        if (localStorage.getItem('isRegistered')) {
+            window.location.href = 'clube.html';
+        }
+
+        document.getElementById('cadastro-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const phone = document.getElementById('phone').value;
+
+            submitBtn.innerText = 'CADASTRANDO...';
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password, phone })
+                });
+
+                if (response.ok) {
+                    localStorage.setItem('isRegistered', 'true');
+                    localStorage.setItem('userName', name);
+                    alert('BEM-VINDO À MANSÃO! ACESSO LIBERADO.');
+                    window.location.href = 'index.html';
+                } else {
+                    const data = await response.json();
+                    alert('ERRO: ' + (data.error || 'Falha no cadastro'));
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }
+            } catch (err) {
+                // Fallback para teste local
+                localStorage.setItem('isRegistered', 'true');
+                localStorage.setItem('userName', name);
+                alert('MODO DE TESTE: Cadastro simulado com sucesso! (Servidor offline)');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+
+</html>

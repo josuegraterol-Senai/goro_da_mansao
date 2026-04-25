@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PAGAMENTO - GORÓ DA MANSÃO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Space+Grotesk:wght@300..700&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#c3f400",
+                        "background": "#121414",
+                        "surface-container-low": "#1a1c1c"
+                    },
+                    "fontFamily": {
+                        "display": ["Lexend"],
+                        "technical": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.05;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAZf7DlgjTL7G5_F14VS0V7UIe8esRMQ_2gjILA8EuIRY7R5QHfjL4z01B1HRaaFwpmPhdLfW0Hcwpjwe2-8B6pIvIzNall8a6P4tl4ysGmNxRW1OZMZ_9EicDNSwGIchlCilR6FO5g5ZNAyUktoyoxfRZ6R3BlwBBroYzKvEvXaxgZirz3LV8wCSQZRX-MP1tM4cfkrgrCOVqKILB2P_hMJcC8XEjMfE9XRBcUP46a1cwzCL4XHB29yn6mcjejYhYGt4L--CcQJ0bY);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-white font-['Plus_Jakarta_Sans']">
+    <div class="grain-overlay"></div>
+
+    <header class="p-6 border-b border-white/5 flex justify-between items-center bg-black/50 backdrop-blur-md sticky top-0 z-50">
+        <a href="catalogo.html" class="flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span class="font-display font-black uppercase text-xs">Voltar</span>
+        </a>
+        <div class="text-xl font-display font-black text-primary-fixed italic uppercase">GORÓ DA MANSÃO</div>
+        <div class="w-10"></div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6 md:p-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Detalhes do Pedido -->
+        <div class="space-y-8">
+            <h1 class="font-display text-4xl font-black uppercase italic">Finalizar <span class="text-primary-fixed">Pedido</span></h1>
+            
+            <div id="checkout-items" class="space-y-4">
+                <!-- Items list -->
+            </div>
+
+            <div class="p-8 bg-white/5 border border-white/10 space-y-4">
+                <div class="flex justify-between text-white/50 font-technical uppercase text-xs">
+                    <span>Subtotal</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="flex justify-between text-white/50 font-technical uppercase text-xs">
+                    <span>Frete Mansão (Express)</span>
+                    <span class="text-primary-fixed">GRÁTIS</span>
+                </div>
+                <div class="border-t border-white/10 pt-4 flex justify-between items-end">
+                    <span class="font-display font-black uppercase">Total</span>
+                    <span id="total" class="font-display text-4xl font-black text-primary-fixed">R$ 0,00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagamento -->
+        <div class="bg-surface-container-low p-8 md:p-12 border border-primary-fixed/20 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 font-technical text-[10px] text-primary-fixed opacity-30">SECURE_PAYMENT_v2</div>
+            
+            <h2 class="font-display text-2xl font-black uppercase mb-8">Método de Pagamento</h2>
+            
+            <div class="space-y-6">
+                <!-- PIX Selection (Highlight) -->
+                <label class="block p-6 border-2 border-primary-fixed bg-primary-fixed/5 cursor-pointer relative group transition-all">
+                    <input type="radio" name="payment" checked class="hidden">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary-fixed text-3xl">pix</span>
+                            <div>
+                                <p class="font-display font-bold uppercase">PIX (Recomendado)</p>
+                                <p class="text-xs text-white/50">Liberação imediata do seu Shape</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+                    </div>
+                </label>
+
+                <!-- Cartão Selection -->
+                <label class="block p-6 border border-white/10 hover:border-white/30 cursor-pointer transition-all">
+                    <input type="radio" name="payment" class="hidden">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-white/30 text-3xl">credit_card</span>
+                        <div>
+                            <p class="font-display font-bold uppercase text-white/50">Cartão de Crédito</p>
+                            <p class="text-xs text-white/30">Em até 12x na Mansão</p>
+                        </div>
+                    </div>
+                </label>
+
+                <div class="pt-8">
+                    <button onclick="simulatePayment()" class="w-full bg-primary-fixed text-black font-display font-black py-6 uppercase text-xl hover:bg-white hover:shadow-[0_0_40px_rgba(195,244,0,0.4)] transition-all transform active:scale-95 flex items-center justify-center gap-4">
+                        GERAR QR CODE PIX
+                        <span class="material-symbols-outlined">qr_code_2</span>
+                    </button>
+                    <p class="text-[10px] text-center text-white/20 mt-4 font-technical uppercase tracking-widest">Transação criptografada pela rede Mansão Maromba</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function renderCheckout() {
+            const container = document.getElementById('checkout-items');
+            if (cart.length === 0) {
+                window.location.href = 'catalogo.html';
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = cart.map(item => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="flex gap-4 items-center bg-white/5 p-4">
+                        <img src="${item.image_url}" class="w-16 h-16 object-contain">
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-sm uppercase">${item.name}</h4>
+                            <p class="text-xs text-white/40">${item.quantity} UNIDADES</p>
+                        </div>
+                        <span class="font-display font-bold">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('subtotal').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            document.getElementById('total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function simulatePayment() {
+            const btn = document.querySelector('button');
+            btn.innerText = 'PROCESSANDO...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('PAGAMENTO APROVADO! Sua vibe está a caminho da sua casa.');
+                localStorage.removeItem('cart');
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+
+        renderCheckout();
+    </script>
+</body>
+</html>
