@@ -21,7 +21,12 @@ const products = [
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '.')));
+
+// Rota para servir o frontend
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Endpoints da API
 app.post('/api/subscribe', (req, res) => {
