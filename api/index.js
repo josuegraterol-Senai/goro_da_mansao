@@ -22,24 +22,6 @@ const products = [
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Fallback para servir arquivos HTML se o Vercel não o fizer automaticamente
-app.get('/', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'index.html'));
-});
-
-app.get('/:page', (req, res) => {
-    const page = req.params.page;
-    const fileName = page.endsWith('.html') ? page : page + '.html';
-    res.sendFile(path.join(process.cwd(), fileName), (err) => {
-        if (err) {
-            // Se não for um HTML, deixa passar para as outras rotas ou dá 404
-            if (!req.path.startsWith('/api')) {
-                res.status(404).send('Não encontrado na Mansão');
-            }
-        }
-    });
-});
-
 // Endpoints da API
 app.post('/api/subscribe', (req, res) => {
     const { email, city, type } = req.body;
